@@ -9,9 +9,14 @@ CC	=	gcc
 
 WAY	=	../src
 
-SRC	=	
+SRC	=	$(WAY)/hash_map/hash_get_key.c		\
+		$(WAY)/hash_map/generate_hash_map.c	\
+		$(WAY)/hash_map/hm_generate_object.c	\
+		$(WAY)/hash_map/hm_get_last_object.c	\
+		$(WAY)/hash_map/hm_add_object.c		\
 
-SRC_UT	=	
+
+SRC_UT	=	hash_map/tests_utils.c			\
 
 OBJ	=	$(SRC:.c=.o)
 
