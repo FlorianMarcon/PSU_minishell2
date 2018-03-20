@@ -5,10 +5,12 @@
 ** hash_table
 */
 
-#include "my.h"
 
 #ifndef HASH_TABLE_
 #define HASH_TABLE_
+
+#include "my.h"
+#include "hash_map.h"
 
 typedef struct hm_object {
 	char *key;

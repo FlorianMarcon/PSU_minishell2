@@ -14,9 +14,15 @@ SRC	=	$(WAY)/hash_map/hash_get_key.c		\
 		$(WAY)/hash_map/hm_generate_object.c	\
 		$(WAY)/hash_map/hm_get_last_object.c	\
 		$(WAY)/hash_map/hm_add_object.c		\
+		$(WAY)/utilitaries/is_executable.c	\
+		$(WAY)/hm_binary/put_binary_in_hm.c	\
+		$(WAY)/hm_binary/analyse_file.c		\
+		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
 
 
 SRC_UT	=	hash_map/tests_utils.c			\
+		utilitaries/is_executable/tests_utils.c	\
+		hm_binary/tests_utils.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

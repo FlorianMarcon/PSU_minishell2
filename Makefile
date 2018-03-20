@@ -9,7 +9,8 @@ CC	=	gcc
 
 WAY	=	./src
 
-SRC	=	
+SRC	=	$(WAY)/main.c	\
+		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -23,7 +24,7 @@ WAY_TST	=	./tests
 
 LIB	=	-L$(WAY_LIB) -lmy
 
-NAME	=	my_rpg
+NAME	=	mysh
 
 all:	$(OBJ)
 	make -C./$(WAY_LIB)
