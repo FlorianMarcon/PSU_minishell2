@@ -18,11 +18,14 @@ SRC	=	$(WAY)/hash_map/hash_get_key.c		\
 		$(WAY)/hm_binary/put_binary_in_hm.c	\
 		$(WAY)/hm_binary/analyse_file.c		\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
+		$(WAY)/hm_env/generate_name_and_arg_var_env.c	\
+		$(WAY)/hm_env/generate_hm_env.c		\
 
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		utilitaries/is_executable/tests_utils.c	\
 		hm_binary/tests_utils.c			\
+		hm_env/tests_utils.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

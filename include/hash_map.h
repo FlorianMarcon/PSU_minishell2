@@ -9,6 +9,8 @@
 #ifndef HASH_TABLE_
 #define HASH_TABLE_
 
+#define SIZE_HM 3000
+
 #include "my.h"
 #include "hash_map.h"
 
