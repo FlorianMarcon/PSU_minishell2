@@ -5,7 +5,6 @@
 ** hash_table
 */
 
-
 #ifndef HASH_TABLE_
 #define HASH_TABLE_
 
