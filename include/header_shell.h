@@ -29,4 +29,10 @@ tree_t	*parsing_command_line(char **cmd);
 
 char	**create_tab_op_for_command_line(char *str);
 
+// builtin
+
+void	print_env_variable(hm_object_t *obj);
+
+void	env(hash_map_t *env);
+
 #endif

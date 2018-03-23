@@ -36,8 +36,8 @@ Test(generate_hm_env, test1)
 {
 	char **envp = malloc(sizeof(*envp) * 3);
 	hash_map_t *hm;
-	linked_list_t *list;
 	int key;
+	char *str;
 
 	envp[0] = my_strdup("PATH=/bin:/usr/bin");
 	envp[1] = my_strdup("TEST=var:oui");
@@ -47,9 +47,7 @@ Test(generate_hm_env, test1)
 	cr_assert_neq(hm, NULL);
 	cr_assert_neq(hm->hash_map[key], NULL);
 	cr_assert_str_eq(hm->hash_map[key]->key, "PATH");
-	list = (linked_list_t *)hm->hash_map[key]->data;
-	cr_assert_neq(list, NULL);
-	cr_assert_str_eq((char *)list->data, "/bin");
-	list = list->next;
-	cr_assert_str_eq((char *)list->data, "/usr/bin");
+	str = (char *)hm->hash_map[key]->data;
+	cr_assert_neq(str, NULL);
+	cr_assert_str_eq(str, "/bin:/usr/bin");
 }

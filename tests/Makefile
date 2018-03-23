@@ -24,6 +24,7 @@ SRC	=	$(WAY)/hash_map/hash_get_key.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/utilitaries/parsing_command_line.c	\
+		$(WAY)/builtin/env.c			\
 
 
 SRC_UT	=	hash_map/tests_utils.c			\
@@ -34,6 +35,7 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		hm_env/tests_utils.c			\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
+		builtin/env/tests_utils.c		\
 
 OBJ	=	$(SRC:.c=.o)
 
