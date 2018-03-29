@@ -34,4 +34,6 @@ hm_object_t	*hm_get_last_object(hm_object_t *hm);
 
 void	hm_add_object(hash_map_t *hm, char *name, void *data);
 
+hm_object_t	*hm_get_object(hash_map_t *hm, char *label);
+
 #endif
