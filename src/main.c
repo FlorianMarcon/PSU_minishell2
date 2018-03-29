@@ -9,10 +9,7 @@
 #include <dirent.h>
 #include "binary.h"
 
-int	main()
+int	main(void)
 {
-	DIR *dir = opendir("./");
-	hm_binary_list_all_file(dir);
-	closedir(dir);
 	return (0);
 }

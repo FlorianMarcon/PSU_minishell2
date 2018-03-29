@@ -22,11 +22,14 @@ Test(search_index_operator, test1)
 		"&",
 		"ls",
 		"-l",
+		"|",
 		";",
 		"cat",
 		"file",
 		NULL
 	};
+	cr_assert_eq(search_index_operator(cmd), 4);
+	cmd[4] = NULL;
 	cr_assert_eq(search_index_operator(cmd), 3);
 	cmd[3] = NULL;
 	cr_assert_eq(search_index_operator(cmd), 0);

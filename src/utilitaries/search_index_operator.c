@@ -39,6 +39,11 @@ int	search_index_operator(char **cmd)
 	}
 	i = 0;
 	while (cmd[i] != NULL) {
+		if (my_strcmp(cmd[i++], "|") == 0)
+			return (--i);
+	}
+	i = 0;
+	while (cmd[i] != NULL) {
 		if (is_operator(cmd[i++]))
 			return (--i);
 	}
