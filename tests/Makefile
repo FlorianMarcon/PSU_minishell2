@@ -14,24 +14,31 @@ SRC	=	$(WAY)/hash_map/hash_get_key.c		\
 		$(WAY)/hash_map/hm_generate_object.c	\
 		$(WAY)/hash_map/hm_get_last_object.c	\
 		$(WAY)/hash_map/hm_add_object.c		\
+		$(WAY)/hash_map/hm_get_object.c		\
 		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_binary/put_binary_in_hm.c	\
 		$(WAY)/hm_binary/analyse_file.c		\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
+		$(WAY)/hm_binary/generate_hm_binary.c	\
 		$(WAY)/hm_env/generate_name_and_arg_var_env.c	\
 		$(WAY)/hm_env/generate_hm_env.c		\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/utilitaries/parsing_command_line.c	\
+		$(WAY)/utilitaries/get_next_instruction.c	\
+		$(WAY)/utilitaries/generate_shell.c	\
 		$(WAY)/builtin/env.c			\
 
 
 SRC_UT	=	hash_map/tests_utils.c			\
+		hash_map/tests_utils_second.c			\
 		utilitaries/is_executable/tests_utils.c	\
 		utilitaries/search_index_operator/tests_utils.c	\
 		utilitaries/parsing_command_line/tests_utils.c	\
+		utilitaries/get_next_instruction/tests_utils.c	\
 		hm_binary/tests_utils.c			\
+		hm_binary/tests_utils_second.c		\
 		hm_env/tests_utils.c			\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\

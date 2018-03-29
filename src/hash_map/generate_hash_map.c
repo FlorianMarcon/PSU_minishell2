@@ -15,6 +15,8 @@ hash_map_t	*generate_hash_map(int size)
 	if (size <= 0 || (hm = malloc(sizeof(*hm))) == NULL)
 		return (NULL);
 	hm->hash_map = malloc(sizeof(*(hm->hash_map)) * (size + 1));
+	for (unsigned int i = 0; i != (unsigned int)size + 1; i++)
+		hm->hash_map[i] = NULL;
 	if (hm->hash_map == NULL) {
 		free(hm);
 		return (NULL);

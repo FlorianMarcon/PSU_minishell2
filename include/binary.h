@@ -24,4 +24,6 @@ void	analyse_file(hash_map_t *hm, char *path, char *cmd);
 
 void	hm_binary_list_all_file(hash_map_t *hm, DIR *dir, char *path);
 
+hash_map_t	*generate_hm_binary(char *all_path);
+
 #endif

@@ -14,7 +14,7 @@
 typedef struct shell_s {
 	hash_map_t *env;
 	hash_map_t *binary;
-	tree_t *cmd;
+//	tree_t *cmd;
 }shell_t;
 
 // utilitaries
@@ -28,6 +28,10 @@ int	is_operator(char *str);
 tree_t	*parsing_command_line(char **cmd);
 
 char	**create_tab_op_for_command_line(char *str);
+
+tree_t	*get_next_instruction(int fd);
+
+shell_t	*generate_shell(char **envp);
 
 // builtin
 
