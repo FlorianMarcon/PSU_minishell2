@@ -11,11 +11,17 @@
 
 int	run_builtin(shell_t *shell, char **cmd)
 {
+	if (cmd[0] == NULL)
+		return (1);
 	if (my_strcmp(cmd[0], "exit") == 0) {
 		exit_program(shell, cmd);
 		return (0);
+	} else if (my_strcmp(cmd[0], "env") == 0) {
+		env(shell, cmd);
+		return (0);
+	} else {
+		return (1);
 	}
-	return (1);
 }
 
 void	run_cmd(shell_t *shell, tree_t *tree)
