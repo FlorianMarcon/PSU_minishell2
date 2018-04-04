@@ -13,30 +13,25 @@ Test(put_binary_in_hm, test1)
 {
 	hash_map_t *hm = generate_hash_map(12);
 	int key;
-	binary_t *bin;
+	char *path;
 
 	cr_assert_neq(hm, NULL);
 	key = hm_get_key("test", hm);
 	put_binary_in_hm(hm, "../here/", "test");
-	bin = (binary_t *)(hm->hash_map[key]->data);
-	cr_assert_neq(bin , NULL);
-	cr_assert_str_eq(bin->cmd, "test");
-	cr_assert_str_eq(bin->path, "../here/test");
+	path = hm->hash_map[key]->data;
+	cr_assert_neq(path, NULL);
 }
 
 Test(analyse_file, test1_success)
 {
 	hash_map_t *hm = generate_hash_map(12);
-	int key;
-	binary_t *bin;
+	hm_object_t *obj;
 
 	cr_assert_neq(hm, NULL);
-	key = hm_get_key("ls", hm);
-	analyse_file(hm, "/bin/", "ls");
-	bin = (binary_t *)(hm->hash_map[key]->data);
-	cr_assert_neq(bin , NULL);
-	cr_assert_str_eq(bin->cmd, "ls");
-	cr_assert_str_eq(bin->path, "/bin/ls");
+	analyse_file(hm, "/bin", "ls");
+	obj = hm_get_object(hm, "ls");
+	cr_assert_neq(obj, NULL);
+	cr_assert_str_eq(obj->data, "/bin/ls");
 }
 Test(analyse_file, test1_failure)
 {

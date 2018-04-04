@@ -10,7 +10,9 @@
 
 void	analyse_file(hash_map_t *hm, char *path, char *cmd)
 {
-	char *cat = my_strcat(path, cmd);
+	char *cat = my_strcat(path, "/");
+
+	cat = my_strcat(cat, cmd);
 
 	if (is_executable(cat)) {
 		put_binary_in_hm(hm, path, cmd);

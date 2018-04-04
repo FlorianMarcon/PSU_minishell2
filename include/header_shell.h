@@ -14,8 +14,12 @@
 typedef struct shell_s {
 	hash_map_t *env;
 	hash_map_t *binary;
+
+	char **ptr_env;
 //	tree_t *cmd;
 }shell_t;
+
+int	minishell(shell_t *shell);
 
 // utilitaries
 
@@ -33,10 +37,22 @@ tree_t	*get_next_instruction(int fd);
 
 shell_t	*generate_shell(char **envp);
 
+char	*get_path(hash_map_t *map_binary, char *cmd);
+
+int	is_operator(char *str);
+
 // builtin
 
 void	print_env_variable(hm_object_t *obj);
 
 void	env(hash_map_t *env);
+
+// run cmd
+
+void	run_cmd(shell_t *shell, tree_t *tree);
+
+// execution
+
+int	basic_exec(shell_t *shell, char **cmd);
 
 #endif

@@ -13,10 +13,10 @@
 hash_map_t	*generate_hm_binary(char *all_path)
 {
 	char **tab;
-	hash_map_t *map;
+	hash_map_t *map = generate_hash_map(SIZE_HM);
 	DIR *dir;
 
-	if ((map = malloc(sizeof(*map))) == NULL)
+	if (map == NULL)
 		return (NULL);
 	if (all_path == NULL || (tab = parsing_str(all_path, ':')) == NULL)
 		return (map);

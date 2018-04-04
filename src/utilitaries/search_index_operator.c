@@ -7,26 +7,8 @@
 
 #include "my.h"
 #include "binary.h"
+#include "header_shell.h"
 
-int	is_operator(char *str)
-{
-	int a = 0;
-	const char *operator[8]  = {
-		";",
-		"|",
-		"&",
-		">",
-		">>",
-		"<<",
-		"<",
-		NULL
-	};
-
-	while (operator[a] != NULL)
-		if (my_strcmp(operator[a++], str) == 0)
-			return (1);
-	return (0);
-}
 int	search_index_operator(char **cmd)
 {
 	int i = 0;

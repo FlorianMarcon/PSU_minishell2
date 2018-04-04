@@ -20,5 +20,7 @@ int	main(int ac, char **av, char **envp)
 	shell = generate_shell(envp);
 	if (shell == NULL)
 		return (84);
+	minishell(shell);
+	free(shell);
 	return (0);
 }

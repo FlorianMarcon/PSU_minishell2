@@ -19,7 +19,7 @@ tree_t	*get_next_instruction(int fd)
 		return (NULL);
 	cmd = parsing_command_line(tab);
 	free(str);
-	free(tab);
+//	free(tab);
 	if (cmd == NULL)
 		return (NULL);
 	else

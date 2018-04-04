@@ -11,5 +11,6 @@
 Test(is_executable, test1)
 {
 	cr_assert_eq(is_executable("./data/executable"), 1);
+	cr_assert_eq(is_executable("/bin/ls"), 1);
 	cr_assert_eq(is_executable("./data/no_executable"), 0);
 }

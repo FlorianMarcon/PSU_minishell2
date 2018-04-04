@@ -19,6 +19,7 @@ shell_t	*generate_shell(char **envp)
 	if (shell == NULL)
 		return (NULL);
 	shell->env = generate_hm_env(envp);
+	shell->ptr_env = envp;
 	obj = hm_get_object(shell->env, "PATH");
 	if (obj != NULL)
 		str = (char *)obj->data;

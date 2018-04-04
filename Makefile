@@ -10,6 +10,7 @@ CC	=	gcc
 WAY	=	./src
 
 SRC	=	$(WAY)/main.c	\
+		$(WAY)/shell.c	\
 		$(WAY)/hash_map/hash_get_key.c		\
 		$(WAY)/hash_map/generate_hash_map.c	\
 		$(WAY)/hash_map/hm_generate_object.c	\
@@ -29,7 +30,11 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/parsing_command_line.c	\
 		$(WAY)/utilitaries/get_next_instruction.c	\
 		$(WAY)/utilitaries/generate_shell.c	\
+		$(WAY)/utilitaries/get_path.c		\
+		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/builtin/env.c			\
+		$(WAY)/run_cmd/run_cmd.c		\
+		$(WAY)/execution/basic_exec.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

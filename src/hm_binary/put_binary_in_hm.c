@@ -10,18 +10,7 @@
 
 void	put_binary_in_hm(hash_map_t *hm, char *path, char *cmd)
 {
-	binary_t *bin = malloc(sizeof(*bin));
-
-	if (bin == NULL)
-		return;
-	if ((bin->cmd = my_strdup(cmd)) == NULL) {
-		free(bin);
-		return;
-	} else if ((bin->path = my_strcat(path, cmd)) == NULL) {
-		free(bin->cmd);
-		free(bin);
-		return;
-	} else {
-		hm_add_object(hm, cmd, bin);
-	}
+	path = my_strcat(path, "/");
+	path = my_strcat(path, cmd);
+	hm_add_object(hm, cmd, path);
 }

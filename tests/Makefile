@@ -28,12 +28,15 @@ SRC	=	$(WAY)/hash_map/hash_get_key.c		\
 		$(WAY)/utilitaries/parsing_command_line.c	\
 		$(WAY)/utilitaries/get_next_instruction.c	\
 		$(WAY)/utilitaries/generate_shell.c	\
+		$(WAY)/utilitaries/get_path.c		\
+		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/builtin/env.c			\
 
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
 		utilitaries/is_executable/tests_utils.c	\
+		utilitaries/get_path/tests_utils.c	\
 		utilitaries/search_index_operator/tests_utils.c	\
 		utilitaries/parsing_command_line/tests_utils.c	\
 		utilitaries/get_next_instruction/tests_utils.c	\
