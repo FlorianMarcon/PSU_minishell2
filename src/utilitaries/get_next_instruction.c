@@ -9,13 +9,17 @@
 #include "my.h"
 #include "header_shell.h"
 
-tree_t	*get_next_instruction(int fd)
+tree_t	*get_next_instruction(shell_t *shell, int fd)
 {
 	char *str = get_next_line(fd);
 	char **tab;
 	tree_t *cmd;
 
-	if (str == NULL || (tab = parsing_str(str, ' ' | '\t')) == NULL)
+	if (str == NULL) {
+		shell->exit = true;
+		shell->value_exit = 0;
+	}
+	if ((tab = parsing_str(str, ' ' | '\t')) == NULL)
 		return (NULL);
 	cmd = parsing_command_line(tab);
 	free(str);

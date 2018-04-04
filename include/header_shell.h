@@ -42,7 +42,7 @@ tree_t	*parsing_command_line(char **cmd);
 
 char	**create_tab_op_for_command_line(char *str);
 
-tree_t	*get_next_instruction(int fd);
+tree_t	*get_next_instruction(shell_t *shell, int fd);
 
 shell_t	*generate_shell(char **envp);
 
