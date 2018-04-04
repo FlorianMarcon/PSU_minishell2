@@ -23,7 +23,7 @@ int	basic_exec(shell_t *shell, char **cmd)
 		return (1);
 	pid = fork();
 	if (pid == 0)
-		execve(path, cmd, shell->ptr_env);
+		execve(path, cmd, shell->list_env);
 	else {
 		waitpid(pid, &lock, 0);
 	}

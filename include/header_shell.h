@@ -8,15 +8,24 @@
 #ifndef SHELL_
 #define SHELL_
 
+#include <stdbool.h>
 #include "hash_map.h"
 #include "tree.h"
 
 typedef struct shell_s {
+	// var env
 	hash_map_t *env;
+	char **list_env;
+	char pwd[100];
+	char *old_pwd;
+
+	//binary
 	hash_map_t *binary;
 
-	char **ptr_env;
-//	tree_t *cmd;
+	//
+	bool exit;
+	int value_exit;
+
 }shell_t;
 
 int	minishell(shell_t *shell);
@@ -43,10 +52,14 @@ int	is_operator(char *str);
 
 // builtin
 
-void	print_env_variable(hm_object_t *obj);
+typedef struct built_s {
+	char *label;
+	int (*ptr)(shell_t *, char **);
+}built_t;
 
-void	env(hash_map_t *env);
+int	env(shell_t *shell, char **cmd);
 
+int	exit_program(shell_t *shell, char **cmd);
 // run cmd
 
 void	run_cmd(shell_t *shell, tree_t *tree);

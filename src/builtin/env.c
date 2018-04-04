@@ -6,30 +6,20 @@
 */
 
 #include "hash_map.h"
+#include "header_shell.h"
 
-void	print_env_variable(hm_object_t *obj)
+int	env(shell_t *shell, char **cmd)
 {
-	char *arg;
+	char **env = shell->list_env;
 
-	while (obj != NULL) {
-		my_printf("%s=\0", obj->key);
-		arg = (char *)obj->data;
-		if (arg != NULL)
-			my_printf("%s\0", arg);
-		my_printf("\n");
-		obj = obj->next;
+	if (env == NULL)
+		return (1);
+	if (cmd[1] != NULL) {
+		my_printf("env: «%s»: Aucun fichier ou dossier de ce type",
+									cmd[1]);
+		return (1);
 	}
-}
-
-void	env(hash_map_t *env)
-{
-	int i = 0;
-	hm_object_t *obj;
-
-	while (i != env->size) {
-		if ((obj = env->hash_map[i]) != NULL) {
-			print_env_variable(obj);
-		}
-		i++;
-	}
+	for (unsigned int i = 0; env[i] != NULL; i++)
+		my_printf("%s\n", env[i]);
+	return (0);
 }

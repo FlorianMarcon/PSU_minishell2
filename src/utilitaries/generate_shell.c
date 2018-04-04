@@ -5,6 +5,8 @@
 ** generate_shell
 */
 
+#include <unistd.h>
+#include <stdbool.h>
 #include "header_shell.h"
 #include "hash_map.h"
 #include "environment.h"
@@ -19,10 +21,13 @@ shell_t	*generate_shell(char **envp)
 	if (shell == NULL)
 		return (NULL);
 	shell->env = generate_hm_env(envp);
-	shell->ptr_env = envp;
+	shell->list_env = envp;
+	getcwd(shell->pwd, sizeof(shell->pwd));
+	shell->old_pwd = NULL;
 	obj = hm_get_object(shell->env, "PATH");
 	if (obj != NULL)
 		str = (char *)obj->data;
 	shell->binary = generate_hm_binary(str);
+	shell->exit = false;
 	return (shell);
 }

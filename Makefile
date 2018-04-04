@@ -17,7 +17,6 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/hash_map/hm_get_last_object.c	\
 		$(WAY)/hash_map/hm_add_object.c		\
 		$(WAY)/hash_map/hm_get_object.c		\
-		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_binary/put_binary_in_hm.c	\
 		$(WAY)/hm_binary/analyse_file.c		\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
@@ -26,6 +25,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/hm_env/generate_hm_env.c		\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
+		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/utilitaries/parsing_command_line.c	\
 		$(WAY)/utilitaries/get_next_instruction.c	\
@@ -33,6 +33,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/builtin/env.c			\
+		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/execution/basic_exec.c		\
 

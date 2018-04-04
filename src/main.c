@@ -14,13 +14,14 @@ int	main(int ac, char **av, char **envp)
 {
 	(void)av;
 	shell_t *shell;
+	int res;
 
 	if (ac > 1)
 		return (1);
 	shell = generate_shell(envp);
 	if (shell == NULL)
 		return (84);
-	minishell(shell);
+	res = minishell(shell);
 	free(shell);
-	return (0);
+	return (res);
 }

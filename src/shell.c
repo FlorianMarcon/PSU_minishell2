@@ -5,6 +5,7 @@
 ** shell
 */
 
+#include <stdbool.h>
 #include "header_shell.h"
 #include "tree.h"
 
@@ -13,7 +14,7 @@ int	minishell(shell_t *shell)
 	(void)shell;
 	tree_t *cmd;
 
-	while (1) {
+	while (shell->exit == false) {
 		cmd = get_next_instruction(0);
 		if (cmd == NULL)
 			my_printf("Bad instructions\n");
@@ -22,4 +23,5 @@ int	minishell(shell_t *shell)
 			free(cmd);
 		}
 	}
+	return (shell->value_exit);
 }
