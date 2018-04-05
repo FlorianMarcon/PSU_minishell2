@@ -11,15 +11,14 @@
 
 int	minishell(shell_t *shell)
 {
-	(void)shell;
 	tree_t *cmd;
 
 	while (shell->exit == false) {
 		cmd = get_next_instruction(0);
-		if (cmd == NULL)
-			my_printf("Bad instructions\n");
-		else {
-			run_cmd(shell, cmd);
+		if (cmd == NULL) {
+			shell->exit = true;
+		} else {
+			run_cmd(shell, cmd, NULL, -1);
 			free(cmd);
 		}
 	}

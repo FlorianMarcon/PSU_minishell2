@@ -37,6 +37,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
+		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/execution/basic_exec.c		\
 
 OBJ	=	$(SRC:.c=.o)
