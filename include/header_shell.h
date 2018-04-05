@@ -50,6 +50,8 @@ char	*get_path(hash_map_t *map_binary, char *cmd);
 
 int	is_operator(char *str);
 
+char	**my_addtab(char **tab, char *str);
+
 // builtin
 
 typedef struct built_s {
@@ -60,6 +62,9 @@ typedef struct built_s {
 int	env(shell_t *shell, char **cmd);
 
 int	exit_program(shell_t *shell, char **cmd);
+
+int	current_directory(shell_t *shell, char **cmd);
+
 // run cmd
 
 void	run_cmd(shell_t *shell, tree_t *tree);

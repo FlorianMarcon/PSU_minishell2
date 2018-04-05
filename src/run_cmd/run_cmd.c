@@ -19,6 +19,9 @@ int	run_builtin(shell_t *shell, char **cmd)
 	} else if (my_strcmp(cmd[0], "env") == 0) {
 		env(shell, cmd);
 		return (0);
+	}  else if (my_strcmp(cmd[0], "cd") == 0) {
+		current_directory(shell, cmd);
+		return (0);
 	} else {
 		return (1);
 	}
