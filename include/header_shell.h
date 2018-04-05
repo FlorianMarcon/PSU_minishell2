@@ -74,14 +74,18 @@ typedef struct optab_s {
 
 int	run_pipe(shell_t *shell, tree_t *tree);
 
+int	run_right_chevron(shell_t *shell, tree_t *tree);
+
+int	run_double_right_chevron(shell_t *shell, tree_t *tree);
+
 static const optab_t run_op[8] = {
 	{";", NULL},
 	{"|", run_pipe},
 	{"&", NULL},
 	{"<", NULL},
 	{"<<", NULL},
-	{">", NULL},
-	{">", NULL},
+	{">", run_right_chevron},
+	{">>", run_double_right_chevron},
 	{NULL, NULL}
 };
 
