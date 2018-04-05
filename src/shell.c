@@ -15,8 +15,10 @@ int	minishell(shell_t *shell)
 
 	while (shell->exit == false) {
 		cmd = get_next_instruction(shell, 0);
-		if (cmd != NULL) {
-			run_cmd(shell, cmd);
+		if (cmd == NULL) {
+			shell->exit = true;
+		} else {
+			run_cmd(shell, cmd, NULL, -1);
 			free(cmd);
 		}
 	}

@@ -50,6 +50,8 @@ char	*get_path(hash_map_t *map_binary, char *cmd);
 
 int	is_operator(char *str);
 
+char	**my_addtab(char **tab, char *str);
+
 // builtin
 
 typedef struct built_s {
@@ -60,12 +62,33 @@ typedef struct built_s {
 int	env(shell_t *shell, char **cmd);
 
 int	exit_program(shell_t *shell, char **cmd);
+
+int	current_directory(shell_t *shell, char **cmd);
+
 // run cmd
 
-void	run_cmd(shell_t *shell, tree_t *tree);
+typedef struct optab_s {
+	char *label;
+	int (*ptr)(shell_t *shell, tree_t *tree);
+}optab_t;
+
+int	run_pipe(shell_t *shell, tree_t *tree);
+
+static const optab_t run_op[8] = {
+	{";", NULL},
+	{"|", run_pipe},
+	{"&", NULL},
+	{"<", NULL},
+	{"<<", NULL},
+	{">", NULL},
+	{">", NULL},
+	{NULL, NULL}
+};
+
+void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int redi);
 
 // execution
 
-int	basic_exec(shell_t *shell, char **cmd);
+int	basic_exec(shell_t *shell, char **cmd, int *fd, int redi);
 
 #endif

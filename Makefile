@@ -32,9 +32,12 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/generate_shell.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
+		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/builtin/env.c			\
+		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
+		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/execution/basic_exec.c		\
 
 OBJ	=	$(SRC:.c=.o)
