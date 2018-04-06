@@ -8,6 +8,18 @@
 #include <stdlib.h>
 #include "my.h"
 
+char	*delete_quote(char *str)
+{
+	char *new;
+
+	if (str == NULL || str[0] != '\"' || str[my_strlen(str) - 1] != '\"')
+		return (str);
+	str[my_strlen(str) - 1] = '\0';
+	new = my_strdup(&str[1]);
+	free(str);
+	return (new);
+}
+
 int	nb_element(char *str, char sep)
 {
 	int i = 0;
@@ -57,6 +69,7 @@ char	**parsing_str(char *str, char separator)
 			c = len_until_separator(&str[i], separator);
 			tab[a] = malloc(sizeof(*tab[a]) * (c + 1));
 			my_strncpy(tab[a++], &str[i], c);
+			tab[a - 1] = delete_quote(tab[a - 1]);
 			i += c;
 		}
 	}
