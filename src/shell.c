@@ -14,11 +14,12 @@ int	minishell(shell_t *shell)
 	tree_t *cmd;
 
 	while (shell->exit == false) {
+		display_prompt(shell);
 		cmd = get_next_instruction(shell, 0);
 		if (cmd == NULL) {
 			shell->exit = true;
 		} else {
-			run_cmd(shell, cmd, NULL, -1);
+			run_cmd(shell, cmd, NULL, NULL);
 			free(cmd);
 		}
 	}

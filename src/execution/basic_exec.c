@@ -13,7 +13,18 @@
 #include "binary.h"
 #include "hash_map.h"
 
-int	basic_exec(shell_t *shell, char **cmd, int *fd, int redi)
+void	alpha(int *fd, int *redi)
+{
+	if (fd != NULL)
+		dup2(fd[1], 1);
+	if (redi != NULL) {
+		if (redi[1] != -1)
+			dup2(redi[1], 1);
+		if (redi[0] != -1)
+			dup2(redi[0], 0);
+	}
+}
+int	basic_exec(shell_t *shell, char **cmd, int *fd, int *redi)
 {
 	int lock;
 	pid_t pid;
@@ -23,10 +34,7 @@ int	basic_exec(shell_t *shell, char **cmd, int *fd, int redi)
 		return (1);
 	pid = fork();
 	if (pid == 0) {
-		if (fd != NULL)
-			dup2(fd[1], 1);
-		if (fd == NULL && redi != -1)
-			dup2(redi, 1);
+		alpha(fd, redi);
 		execve(path, cmd, shell->list_env);
 	} else {
 		waitpid(pid, &lock, 0);

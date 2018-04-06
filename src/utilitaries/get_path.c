@@ -14,7 +14,7 @@ char	*get_path(hash_map_t *env, char *cmd)
 	char *path;
 
 	if (obj == NULL)
-		return (NULL);
+		return (cmd);
 	path = (char *)obj->data;
 	return (path);
 }

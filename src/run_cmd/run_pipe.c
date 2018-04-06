@@ -30,8 +30,8 @@ int	run_pipe(shell_t *shell, tree_t *tree)
 
 	if (fd == NULL)
 		return (1);
-	run_cmd(shell, tree->left, fd, -1);
-	run_cmd(shell, tree->right, NULL, -1);
+	run_cmd(shell, tree->left, fd, NULL);
+	run_cmd(shell, tree->right, NULL, NULL);
 	close(fd[0]);
 	free (fd);
 	dup2(stdin, 0);

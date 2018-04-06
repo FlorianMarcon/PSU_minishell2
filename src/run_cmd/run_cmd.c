@@ -35,12 +35,10 @@ int	run_operator(shell_t *shell, tree_t *tree, char **cmd)
 			return (0);
 		}
 	}
-	run_cmd(shell, tree->right, NULL, -1);
-	run_cmd(shell, tree->left, NULL, -1);
 	return (0);
 }
 
-void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int redi)
+void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int *redi)
 {
 	char **tab;
 

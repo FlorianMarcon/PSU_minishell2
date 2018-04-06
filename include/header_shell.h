@@ -52,6 +52,10 @@ int	is_operator(char *str);
 
 char	**my_addtab(char **tab, char *str);
 
+char	*get_name_in_tree(tree_t *tree);
+
+void	display_prompt(shell_t *shell);
+
 // builtin
 
 typedef struct built_s {
@@ -78,21 +82,25 @@ int	run_right_chevron(shell_t *shell, tree_t *tree);
 
 int	run_double_right_chevron(shell_t *shell, tree_t *tree);
 
+int	run_left_chevron(shell_t *shell, tree_t *tree);
+
+int	run_semicolon(shell_t *shell, tree_t *tree);
+
 static const optab_t run_op[8] = {
-	{";", NULL},
+	{";", run_semicolon},
 	{"|", run_pipe},
 	{"&", NULL},
-	{"<", NULL},
+	{"<", run_left_chevron},
 	{"<<", NULL},
 	{">", run_right_chevron},
 	{">>", run_double_right_chevron},
 	{NULL, NULL}
 };
 
-void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int redi);
+void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int *redi);
 
 // execution
 
-int	basic_exec(shell_t *shell, char **cmd, int *fd, int redi);
+int	basic_exec(shell_t *shell, char **cmd, int *fd, int *redi);
 
 #endif

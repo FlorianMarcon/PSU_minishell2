@@ -33,12 +33,16 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
+		$(WAY)/utilitaries/display_prompt.c	\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_right_chevron.c	\
+		$(WAY)/run_cmd/run_left_chevron.c	\
+		$(WAY)/run_cmd/run_semicolon.c		\
+		$(WAY)/run_cmd/get_name_in_tree.c	\
 		$(WAY)/execution/basic_exec.c		\
 
 OBJ	=	$(SRC:.c=.o)
