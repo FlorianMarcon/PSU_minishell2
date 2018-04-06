@@ -26,8 +26,9 @@ int	search_index_operator(char **cmd)
 	}
 	i = 0;
 	while (cmd[i] != NULL) {
-		if (is_operator(cmd[i++]))
-			return (--i);
+		if (is_operator(cmd[i], my_strlen(cmd[i])))
+			return (i);
+		i++;
 	}
 	return (-1);
 }

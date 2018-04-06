@@ -19,11 +19,11 @@ tree_t	*get_next_instruction(shell_t *shell, int fd)
 		shell->exit = true;
 		shell->value_exit = 0;
 	}
+	str = separation_between_instruction_operator(str);
 	if ((tab = parsing_str(str, ' ' | '\t')) == NULL)
 		return (NULL);
 	cmd = parsing_command_line(tab);
 	free(str);
-//	free(tab);
 	if (cmd == NULL)
 		return (NULL);
 	else
