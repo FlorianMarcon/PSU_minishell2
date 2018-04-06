@@ -44,6 +44,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/run_cmd/run_semicolon.c		\
 		$(WAY)/run_cmd/get_name_in_tree.c	\
 		$(WAY)/execution/basic_exec.c		\
+		$(WAY)/verification_cmd/verification_cmd.c	\
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
@@ -53,6 +54,7 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		utilitaries/my_tabdup/tests_utils.c	\
 		utilitaries/my_addtab/tests_utils.c	\
 		utilitaries/parsing_command_line/tests_utils.c	\
+		utilitaries/parsing_command_line/tests_utils_second.c	\
 		utilitaries/get_next_instruction/tests_utils.c	\
 		utilitaries/separation_between_instruction_operator/tests_utils.c\
 		hm_binary/tests_utils.c			\
@@ -61,6 +63,7 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
 		builtin/env/tests_utils.c		\
+		verification_cmd/tests_utils.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

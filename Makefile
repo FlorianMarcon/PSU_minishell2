@@ -45,6 +45,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/run_cmd/run_semicolon.c		\
 		$(WAY)/run_cmd/get_name_in_tree.c	\
 		$(WAY)/execution/basic_exec.c		\
+		$(WAY)/verification_cmd/verification_cmd.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

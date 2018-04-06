@@ -26,7 +26,7 @@ tree_t	*parsing_command_line(char **cmd)
 	int i;
 	char **op;
 
-	if (cmd == NULL)
+	if (cmd == NULL || cmd[0] == NULL)
 		return (NULL);
 	i = search_index_operator(cmd);
 	if (i == -1) {

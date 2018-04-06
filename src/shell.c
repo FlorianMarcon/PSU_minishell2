@@ -19,7 +19,8 @@ int	minishell(shell_t *shell)
 		if (cmd == NULL) {
 			shell->exit = true;
 		} else {
-			run_cmd(shell, cmd, NULL, NULL);
+			if (verification_cmd(cmd) == 0)
+				run_cmd(shell, cmd, NULL, NULL);
 			free(cmd);
 		}
 	}

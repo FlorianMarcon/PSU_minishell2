@@ -10,10 +10,10 @@
 
 Test(is_operator, test1)
 {
-	cr_assert_eq(is_operator("<", my_strlen("<")), 1);
-	cr_assert_eq(is_operator(">>", my_strlen(">>")), 1);
-	cr_assert_eq(is_operator("&", my_strlen("&")), 1);
-	cr_assert_eq(is_operator("<a", my_strlen("<a")), 0);
+	cr_assert_eq(is_operator("<"), 1);
+	cr_assert_eq(is_operator(">>"), 1);
+	cr_assert_eq(is_operator("&"), 1);
+	cr_assert_eq(is_operator("<a"), 0);
 }
 
 Test(search_index_operator, test1)

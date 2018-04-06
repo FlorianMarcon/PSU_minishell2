@@ -36,8 +36,6 @@ int	is_executable(char *path);
 
 int	search_index_operator(char **cmd);
 
-//int	is_operator(char *str);
-
 tree_t	*parsing_command_line(char **cmd);
 
 char	**create_tab_op_for_command_line(char *str);
@@ -48,7 +46,7 @@ shell_t	*generate_shell(char **envp);
 
 char	*get_path(hash_map_t *map_binary, char *cmd);
 
-int	is_operator(char *str, int n);
+int	is_operator(char *str);
 
 char	**my_addtab(char **tab, char *str);
 
@@ -61,6 +59,8 @@ char	*new_str(char *str, int i, char *op);
 char	*operator_is_present(char *str);
 
 char	*separation_between_instruction_operator(char *str);
+
+int	verification_cmd(tree_t *node);
 
 // builtin
 

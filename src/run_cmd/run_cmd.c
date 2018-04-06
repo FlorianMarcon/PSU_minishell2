@@ -44,7 +44,7 @@ void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int *redi)
 
 	if (tree == NULL || (tab = (char **)(tree->data)) == NULL)
 		return;
-	if (is_operator(tab[0], my_strlen(tab[0]))) {
+	if (is_operator(tab[0])) {
 		run_operator(shell, tree, tab);
 	} else {
 		if (run_builtin(shell, tab))
