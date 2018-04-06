@@ -19,7 +19,7 @@ int	run_builtin(shell_t *shell, char **cmd)
 	} else if (my_strcmp(cmd[0], "env") == 0) {
 		env(shell, cmd);
 		return (0);
-	}  else if (my_strcmp(cmd[0], "cd") == 0) {
+	} else if (my_strcmp(cmd[0], "cd") == 0) {
 		current_directory(shell, cmd);
 		return (0);
 	} else {
@@ -30,7 +30,8 @@ int	run_builtin(shell_t *shell, char **cmd)
 int	run_operator(shell_t *shell, tree_t *tree, char **cmd)
 {
 	for (unsigned int i = 0; run_op[i].label != NULL; i++) {
-		if (my_strcmp(run_op[i].label, cmd[0]) == 0 && run_op[i].ptr != NULL) {
+		if (my_strcmp(run_op[i].label, cmd[0]) == 0 &&
+						run_op[i].ptr != NULL) {
 			run_op[i].ptr(shell, tree);
 			return (0);
 		}

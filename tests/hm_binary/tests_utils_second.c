@@ -12,7 +12,6 @@
 Test(generate_hm_binary, test1)
 {
 	hash_map_t *map = generate_hm_binary(NULL);
-	//int key = hash_get_key("ls");
 
 	cr_assert_neq(map, NULL);
 }
