@@ -25,13 +25,13 @@ tree_t	*parsing_command_line(char **cmd)
 	tree_t *tree = NULL;
 	int i;
 	char **op;
+	char **dup;
 
 	if (cmd == NULL || cmd[0] == NULL)
 		return (NULL);
-	i = search_index_operator(cmd);
-	if (i == -1) {
-		if ((tree = tree_create_node(cmd, NULL, NULL)) == NULL)
-			return (NULL);
+	if ((i = search_index_operator(cmd)) == -1) {
+		dup = my_tabdup(cmd);
+		tree = tree_create_node(dup, NULL, NULL);
 	} else {
 		op = create_tab_op_for_command_line(cmd[i]);
 		if ((tree = tree_create_node(op, NULL, NULL)) == NULL)

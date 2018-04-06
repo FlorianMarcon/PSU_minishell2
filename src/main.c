@@ -22,6 +22,8 @@ int	main(int ac, char **av, char **envp)
 	if (shell == NULL)
 		return (84);
 	res = minishell(shell);
+	hm_destroy(shell->env);
+	hm_destroy(shell->binary);
 	free(shell);
 	return (res);
 }

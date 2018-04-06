@@ -36,4 +36,6 @@ void	hm_add_object(hash_map_t *hm, char *name, void *data);
 
 hm_object_t	*hm_get_object(hash_map_t *hm, char *label);
 
+void	hm_destroy(hash_map_t *hm);
+
 #endif

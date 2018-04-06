@@ -21,7 +21,7 @@ int	minishell(shell_t *shell)
 		} else {
 			if (verification_cmd(cmd) == 0)
 				run_cmd(shell, cmd, NULL, NULL);
-			free(cmd);
+			destroy_tree(cmd);
 		}
 	}
 	return (shell->value_exit);
