@@ -9,11 +9,13 @@
 #include "header_shell.h"
 #include "environment.h"
 
-int	env(shell_t *shell, char **cmd)
+int	env(shell_t *shell, char **cmd, int *fd, int *redi)
 {
 	linked_list_t *list = shell->list_env;
 	variable_t *var;
 
+	(void)fd;
+	(void)redi;
 	if (cmd[1] != NULL) {
 		my_printf("env: «%s»: Aucun fichier ou dossier de ce type",
 									cmd[1]);

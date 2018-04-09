@@ -8,8 +8,10 @@
 #include "header_shell.h"
 #include "my.h"
 
-int	exit_program(shell_t *shell, char **cmd)
+int	exit_program(shell_t *shell, char **cmd, int *fd, int *redi)
 {
+	(void)fd;
+	(void)redi;
 	if (len_tab(cmd) > 2)
 		return (1);
 	shell->exit = true;

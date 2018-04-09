@@ -9,10 +9,12 @@
 #include "my.h"
 #include "header_shell.h"
 
-int	current_directory(shell_t *shell, char **cmd)
+int	current_directory(shell_t *shell, char **cmd, int *fd, int *redi)
 {
 	char *path;
 
+	(void)fd;
+	(void)redi;
 	if (len_tab(cmd) > 2)
 		return (1);
 	if (len_tab(cmd) == 2) {
