@@ -10,20 +10,18 @@
 #include "my_printf.h"
 #include "my.h"
 
-hash_map_t	*generate_hm_env(char **envp)
+hash_map_t	*generate_hm_env(linked_list_t *list)
 {
-	char *name = NULL;
 	hash_map_t *hm = generate_hash_map(SIZE_HM);
+	variable_t *var;
 
 	if (hm == NULL)
 		return (NULL);
-	for (unsigned int i = 0; envp[i] != NULL; i++) {
-		if ((name = generate_name_var_env(envp[i])) == NULL) {
-
-		} else {
-			hm_add_object(hm, name, &envp[i][my_strlen(name) + 1]);
-			free(name);
-		}
+	while (list != NULL) {
+		var = (variable_t *)list->data;
+		if (var != NULL)
+			hm_add_object(hm, var->name, var->data);
+		list = list->next;
 	}
 	return (hm);
 }

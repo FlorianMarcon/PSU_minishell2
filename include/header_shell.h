@@ -15,7 +15,8 @@
 typedef struct shell_s {
 	// var env
 	hash_map_t *env;
-	char **list_env;
+	linked_list_t *list_env;
+	char **arr_env;
 	char pwd[100];
 	char *old_pwd;
 
@@ -74,6 +75,8 @@ int	env(shell_t *shell, char **cmd);
 int	exit_program(shell_t *shell, char **cmd);
 
 int	current_directory(shell_t *shell, char **cmd);
+
+int	set_env(shell_t *shell, char **cmd);
 
 // run cmd
 

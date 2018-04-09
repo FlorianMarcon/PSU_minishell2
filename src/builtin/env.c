@@ -7,19 +7,23 @@
 
 #include "hash_map.h"
 #include "header_shell.h"
+#include "environment.h"
 
 int	env(shell_t *shell, char **cmd)
 {
-	char **env = shell->list_env;
+	linked_list_t *list = shell->list_env;
+	variable_t *var;
 
-	if (env == NULL)
-		return (1);
 	if (cmd[1] != NULL) {
 		my_printf("env: «%s»: Aucun fichier ou dossier de ce type",
 									cmd[1]);
 		return (1);
 	}
-	for (unsigned int i = 0; env[i] != NULL; i++)
-		my_printf("%s\n", env[i]);
+	while (list != NULL) {
+		var = (variable_t *)list->data;
+		if (var != NULL)
+			my_printf("%s=%s\n", var->name, var->data);
+		list = list->next;
+	}
 	return (0);
 }

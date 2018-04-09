@@ -22,7 +22,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
 		$(WAY)/hm_binary/generate_hm_binary.c	\
 		$(WAY)/hm_env/generate_name_and_arg_var_env.c	\
-		$(WAY)/hm_env/generate_hm_env.c		\
+		$(WAY)/hm_env/generate_list_env.c	\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/tree/destroy_tree.c		\
@@ -39,6 +39,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
+		$(WAY)/builtin/set_env.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_right_chevron.c	\
@@ -47,6 +48,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/run_cmd/get_name_in_tree.c	\
 		$(WAY)/execution/basic_exec.c		\
 		$(WAY)/verification_cmd/verification_cmd.c	\
+		$(WAY)/hm_env/generate_hm_env.c		\
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
@@ -61,11 +63,11 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		utilitaries/separation_between_instruction_operator/tests_utils.c\
 		hm_binary/tests_utils.c			\
 		hm_binary/tests_utils_second.c		\
-		hm_env/tests_utils.c			\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
-		builtin/env/tests_utils.c		\
 		verification_cmd/tests_utils.c		\
+#		builtin/env/tests_utils.c		\
+#		hm_env/tests_utils.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

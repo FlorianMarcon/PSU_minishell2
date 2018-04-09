@@ -35,9 +35,10 @@ int	basic_exec(shell_t *shell, char **cmd, int *fd, int *redi)
 	pid = fork();
 	if (pid == 0) {
 		alpha(fd, redi);
-		execve(path, cmd, shell->list_env);
+		execve(path, cmd, shell->arr_env);
 	} else {
 		waitpid(pid, &lock, 0);
+		shell->value_exit = lock;
 		if (fd != NULL) {
 			dup2(fd[0], 0);
 			close(fd[1]);

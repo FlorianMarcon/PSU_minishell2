@@ -20,8 +20,9 @@ shell_t	*generate_shell(char **envp)
 
 	if (shell == NULL)
 		return (NULL);
-	shell->env = generate_hm_env(envp);
-	shell->list_env = envp;
+	shell->arr_env = envp;
+	shell->list_env = generate_list_env(envp);
+	shell->env = generate_hm_env(shell->list_env);
 	getcwd(shell->pwd, sizeof(shell->pwd));
 	shell->old_pwd = NULL;
 	obj = hm_get_object(shell->env, "PATH");
