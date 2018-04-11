@@ -6,23 +6,19 @@
 */
 
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include "tree.h"
 #include "header_shell.h"
 #include "my.h"
 
-void	alpha(int *fd, int *redi);
-
-int	search_and_run_builtin(shell_t *shell, char **cmd, int *fd, int *redi)
+int	search_and_run_builtin(shell_t *shell, char **cmd)
 {
 	if (cmd[0] == NULL)
 		return (1);
 	for (unsigned int i = 0; builtin[i].label != NULL; i++) {
 		if (my_strcmp(cmd[0], builtin[i].label) == 0) {
-			builtin[i].ptr(shell, cmd, fd, redi);
-			if (fd != NULL) {
-				dup2(fd[0], 0);
-				close(fd[1]);
-			}
+			builtin[i].ptr(shell, cmd);
 			return (0);
 		}
 	}
@@ -41,16 +37,17 @@ int	run_operator(shell_t *shell, tree_t *tree, char **cmd)
 	return (0);
 }
 
-void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int *redi)
+int	run_cmd(shell_t *shell, tree_t *tree)
 {
 	char **tab;
 
 	if (tree == NULL || (tab = (char **)(tree->data)) == NULL)
-		return;
+		return (1);
 	if (is_operator(tab[0])) {
 		run_operator(shell, tree, tab);
 	} else {
-		if (search_and_run_builtin(shell, tab, fd, redi))
-			basic_exec(shell, tab, fd, redi);
+		if (search_and_run_builtin(shell, tab))
+			shell->value_exit = basic_exec(shell, tab);
 	}
+	return (0);
 }

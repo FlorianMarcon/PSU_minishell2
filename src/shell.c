@@ -19,8 +19,8 @@ int	minishell(shell_t *shell)
 		if (cmd == NULL) {
 			shell->exit = true;
 		} else {
-			if (cmd->data != NULL && (shell->value_exit = verification_cmd(cmd)) == 0)
-				run_cmd(shell, cmd, NULL, NULL);
+			if (cmd->data != NULL && verification_cmd(cmd) == 0)
+				run_cmd(shell, cmd);
 			destroy_tree(cmd);
 		}
 	}

@@ -67,16 +67,16 @@ int	verification_cmd(tree_t *node);
 
 typedef struct built_s {
 	char *label;
-	int (*ptr)(shell_t *, char **, int *, int *);
+	int (*ptr)(shell_t *, char **);
 }built_t;
 
-int	env(shell_t *shell, char **cmd, int *fd, int *redi);
+int	env(shell_t *shell, char **cmd);
 
-int	exit_program(shell_t *shell, char **cmd, int *fd, int *redi);
+int	exit_program(shell_t *shell, char **cmd);
 
-int	current_directory(shell_t *shell, char **cmd, int *fd, int *redi);
+int	current_directory(shell_t *shell, char **cmd);
 
-int	set_env(shell_t *shell, char **cmd, int *fd, int *redi);
+int	set_env(shell_t *shell, char **cmd);
 
 static const built_t builtin [5] = {
 	{"env", env},
@@ -113,10 +113,10 @@ static const optab_t run_op[8] = {
 	{NULL, NULL}
 };
 
-void	run_cmd(shell_t *shell, tree_t *tree, int *fd, int *redi);
+int	run_cmd(shell_t *shell, tree_t *tree);
 
 // execution
 
-int	basic_exec(shell_t *shell, char **cmd, int *fd, int *redi);
+int	basic_exec(shell_t *shell, char **cmd);
 
 #endif

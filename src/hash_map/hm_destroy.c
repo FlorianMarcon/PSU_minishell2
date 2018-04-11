@@ -16,8 +16,6 @@ void	hm_destroy_list_object(hm_object_t *obj)
 		return;
 	next = obj->next;
 	free(obj->key);
-//	if (obj->data != NULL)
-//		free(obj->data);
 	free(obj);
 	hm_destroy_list_object(next);
 }

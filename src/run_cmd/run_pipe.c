@@ -7,6 +7,8 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include "header_shell.h"
 #include "tree.h"
 
@@ -25,18 +27,23 @@ int	*create_pipe(void)
 int	run_pipe(shell_t *shell, tree_t *tree)
 {
 	int *fd = create_pipe();
-	int stdin = dup(0);
+	pid_t pid;
+	int lock;
 	int stdout = dup(1);
 
 	if (fd == NULL)
 		return (1);
-	run_cmd(shell, tree->left, fd, NULL);
-	run_cmd(shell, tree->right, NULL, NULL);
-	close(fd[0]);
-	free (fd);
-	dup2(stdin, 0);
+	if ((pid = fork()) == 0) {
+		dup2(fd[0], 0);
+		close(fd[1]);
+		run_cmd(shell, tree->right);
+		exit(0);
+	}
+	dup2(fd[1], 1);
+	run_cmd(shell, tree->left);
+	close(fd[1]);
 	dup2(stdout, 1);
-	close(stdin);
-	close(stdout);
+	waitpid(pid, &lock, 0);
+	free(fd);
 	return (0);
 }

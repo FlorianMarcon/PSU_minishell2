@@ -15,12 +15,15 @@ int	run_right_chevron(shell_t *shell, tree_t *tree)
 {
 	char *file = get_name_in_tree(tree->right);
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP;
-	int fd[2] = {-1, open(file, O_CREAT | O_RDWR | O_TRUNC, mode)};
+	int fd = open(file, O_CREAT | O_RDWR | O_TRUNC, mode);
+	int stdout = dup(1);
 
-	run_cmd(shell, tree->left, NULL, fd);
-	if (fd[1] == -1)
+	if (fd == -1)
 		return (1);
-	close(fd[1]);
+	dup2(fd, 1);
+	run_cmd(shell, tree->left);
+	close(fd);
+	dup2(stdout, 1);
 	return (0);
 }
 
@@ -28,11 +31,14 @@ int	run_double_right_chevron(shell_t *shell, tree_t *tree)
 {
 	char *file = get_name_in_tree(tree->right);
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP;
-	int fd[2] = {-1, open(file, O_CREAT | O_RDWR | O_APPEND, mode)};
+	int fd = open(file, O_CREAT | O_RDWR | O_APPEND, mode);
+	int stdout = dup(1);
 
-	run_cmd(shell, tree->left, NULL, fd);
-	if (fd[1] == -1)
+	if (fd == -1)
 		return (1);
-	close(fd[1]);
+	dup2(fd, 1);
+	run_cmd(shell, tree->left);
+	close(fd);
+	dup2(stdout, 1);
 	return (0);
 }

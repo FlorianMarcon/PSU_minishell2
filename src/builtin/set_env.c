@@ -10,18 +10,16 @@
 #include "header_shell.h"
 #include "environment.h"
 
-int	set_env(shell_t *shell, char **cmd, int *fd, int *redi)
+int	set_env(shell_t *shell, char **cmd)
 {
 	variable_t *var;
 
-	(void)fd;
-	(void)redi;
 	if (len_tab(cmd) > 3) {
 		my_printf("setenv: Too many arguments.\n");
 		return (1);
 	}
 	if (len_tab(cmd) == 1) {
-		env(shell, cmd, fd, redi);
+		env(shell, cmd);
 		return (0);
 	}
 	if ((var = malloc(sizeof(*var))) == NULL)
